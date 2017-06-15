@@ -26,7 +26,16 @@
             if (is_array($obj)) (object)$obj;
             echo (!empty($obj->$property) && $obj->$property == $value)? "selected": "";
         }
-
+        
+        /**
+         * This function allow you modify the echo by Session::it! 
+         */
+        public static function itPersonal($obj, $value, $conValue ) {
+            ob_start();
+            self::it($obj, $value);
+            $backup = ob_get_clean();
+            echo $conValue[$backup];
+        }
         /**
          * Prints $obj->$property value
          * @param  array/object $obj    Array or Object to explore property/position
