@@ -34,6 +34,8 @@
             ob_start();
             self::it($obj, $value);
             $backup = ob_get_clean();
+            if ( $backup == null )
+                $backup = "0";
             if ( array_key_exists( $backup, $conValue) ) 
                 echo $conValue[$backup];
         }
