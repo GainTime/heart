@@ -34,7 +34,8 @@
             ob_start();
             self::it($obj, $value);
             $backup = ob_get_clean();
-            echo $conValue[$backup];
+            if ( array_key_exists( $backup, $conValue) ) 
+                echo $conValue[$backup];
         }
         /**
          * Prints $obj->$property value
